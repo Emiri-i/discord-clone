@@ -1,0 +1,25 @@
+@import "../../cssGlobal/global";
+
+.sidebarChannel {
+  padding-left: 20px;
+  margin-top: 2px;
+
+  h4 {
+    color: $textColor;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: white;
+      background-color: $bcColor;
+      border-radius: 7px;
+    }
+    .sidebarChannelHash {
+      font-size: 22px;
+      padding-right: 10px;
+    }
+  }
+}
