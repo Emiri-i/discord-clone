@@ -6,6 +6,9 @@
   flex-grow: 1;
   background-color: $bcColorChatPage;
 
+  .chatMessasge {
+    flex-grow: 1;
+  }
   .chatInput {
     display: flex;
     align-items: center;
