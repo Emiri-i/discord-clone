@@ -1,9 +1,9 @@
 @import "../../cssGlobal/global";
 .sidebar {
   display: flex;
-  flex: 0.35;
+  flex: 0.3;
   height: 100vh;
-  background-color: $bcColor;
+  // background-color: $bcColor;
 
   .sidebarLeft {
     display: flex;
@@ -25,7 +25,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 50px;
+        width: 45px;
       }
     }
   }
@@ -34,6 +34,7 @@
     background-color: $bcColorSideBarRight;
     width: 300px;
     position: relative;
+    flex-grow: 1;
     .sidebarTop {
       color: #ffffff;
       display: flex;
