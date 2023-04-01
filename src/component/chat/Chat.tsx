@@ -14,6 +14,8 @@ import {
   DocumentData,
   DocumentReference,
   onSnapshot,
+  orderBy,
+  query,
   serverTimestamp,
   Timestamp,
 } from "firebase/firestore";
@@ -44,7 +46,13 @@ const Chat = () => {
       String(channelId),
       "messages"
     );
-    onSnapshot(collectionRef, (snapshot) => {
+
+    const collectionRefOrderBy = query(
+      collectionRef,
+      orderBy("timestamp", "desc")
+    );
+
+    onSnapshot(collectionRefOrderBy, (snapshot) => {
       let results: Messages[] = [];
       snapshot.docs.forEach((doc) => {
         results.push({
@@ -76,6 +84,7 @@ const Chat = () => {
         user: user,
       }
     );
+    setInputText("");
   };
   return (
     <div className="chat">
@@ -89,15 +98,13 @@ const Chat = () => {
             user={message.user}
           />
         ))}
-        {/* <ChatMessage />
-        <ChatMessage />
-        <ChatMessage /> */}
       </div>
       <div className="chatInput">
         <AddCircleOutlineIcon />
         <form>
           <input
             type="text"
+            value={inputText}
             placeholder="Send Message"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setInputText(e.target.value)
