@@ -9,9 +9,10 @@ import { auth, db } from "../../firebase";
 import { useAppSelector } from "../../app/hooks";
 import useCollection from "../../hooks/useCollection";
 import { addDoc, collection } from "firebase/firestore";
+import { setChannelInfo } from "../../features/channelSlice";
 
 const Sidebar = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
   const { documents: channels } = useCollection("channels");
 
   const addChannel = async () => {
